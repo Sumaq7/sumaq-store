@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SUMAQ STORE | Elegancia, Calidad y Estilo en Perú</title>
+  <!-- Google Fonts: Playfair Display for headings & Inter for crisp UI text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons for modern e-commerce elements -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sumaq: {
+              cream: '#FAF7F2',
+              light: '#F3ECE3',
+              sand: '#E6D7C3',
+              caramel: '#D97706',
+              amber: '#C2631D',
+              terracotta: '#A64B2A',
+              brown: '#6B3A21',
+              darkbrown: '#4A2311',
+              espresso: '#24140D',
+              surface: '#FFFDFB'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+            brand: ['Cinzel', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom scrollbar and smooth micro-interactions */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FAF7F2;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #D97706;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #6B3A21;
+    }
+    .badge-pulse {
+      animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes pulse-ring {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.85; transform: scale(1.05); }
+    }
+  </style>
+</head>
+<body class="bg-sumaq-cream text-sumaq-espresso font-sans antialiased selection:bg-sumaq-sand selection:text-sumaq-espresso">
+
+  <!-- Top promotional banner -->
+  <div class="bg-sumaq-darkbrown text-sumaq-sand text-xs sm:text-sm py-2 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-2">
+    <span>✨ ¡Envíos a todo el Perú! Paga seguro con Yape, Plin o Tarjeta</span>
+    <span class="hidden md:inline">•</span>
+    <a href="https://wa.me/51941485928?text=Hola%20Sumaq%20Store,%20deseo%20m%C3%A1s%20informaci%C3%B3n" target="_blank" class="underline hover:text-white transition hidden sm:inline">WhatsApp directo: 941 485 928</a>
+  </div>
+
+  <!-- Main Sticky Header -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-sumaq-sand/50 shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20 gap-4">
+        
+        <!-- Mobile Menu Trigger -->
+        <button id="mobileMenuBtn" aria-label="Abrir menú" class="lg:hidden p-2 text-sumaq-brown hover:text-sumaq-amber focus:outline-none">
+          <i class="fa-solid fa-bars-staggered text-2xl"></i>
+        </button>
+
+        <!-- Brand Logo Container -->
+        <a href="#" class="flex items-center gap-3 group">
+          <!-- Vectorized representation of the Sumaq shopping bag emblem -->
+          <div class="w-12 h-12 bg-sumaq-light rounded-xl border border-sumaq-sand/70 p-1.5 flex items-center justify-center shadow-inner group-hover:scale-105 transition-transform">
+            <svg viewBox="0 0 100 100" class="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M35 34 C35 18, 65 18, 65 34" stroke="#6B3A21" stroke-width="7" stroke-linecap="round"/>
+              <path d="M22 34 L78 34 L88 90 L12 90 Z" fill="#FBF7F0" stroke="#6B3A21" stroke-width="4"/>
+              <path d="M78 34 L88 90 L92 84 L80 28 Z" fill="#8C4626" opacity="0.8"/>
+              <!-- Stylized 'S' logo in brown and amber -->
+              <path d="M57 46 C50 43, 38 48, 42 60 C44 67, 58 64, 57 74 C56 81, 44 83, 38 78" stroke="#6B3A21" stroke-width="6.5" stroke-linecap="round"/>
+              <path d="M38 68 C42 60, 52 64, 50 74 C44 76, 38 72, 38 68 Z" fill="#D97706"/>
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-brand font-bold text-2xl sm:text-3xl tracking-widest text-sumaq-brown leading-tight">SUMAQ</span>
+            <span class="text-[10px] tracking-[0.35em] text-sumaq-terracotta uppercase font-semibold -mt-1 border-t border-sumaq-terracotta/40 pt-0.5">STORE</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden lg:flex items-center space-x-8 font-medium text-sm text-sumaq-espresso">
+          <a href="#catalogo" class="hover:text-sumaq-terracotta transition">Catálogo</a>
+          <a href="#beneficios" class="hover:text-sumaq-terracotta transition">Beneficios</a>
+          <a href="#contacto" class="hover:text-sumaq-terracotta transition">Contacto</a>
+          <a href="https://wa.me/51941485928?text=Hola%20Sumaq%20Store,%20tengo%20una%20consulta" target="_blank" class="hover:text-sumaq-terracotta transition flex items-center gap-1.5">
+            <i class="fa-brands fa-whatsapp text-emerald-600 font-bold"></i> Ayuda WhatsApp
+          </a>
+        </nav>
+
+        <!-- Search Bar and Cart Button -->
+        <div class="flex items-center gap-3">
+          <div class="relative hidden sm:block w-48 md:w-64">
+            <input type="text" id="searchInput" placeholder="Buscar cartera, prenda..." 
+                   class="w-full bg-sumaq-light/60 border border-sumaq-sand text-xs rounded-full py-2 pl-9 pr-3 focus:outline-none focus:ring-2 focus:ring-sumaq-terracotta transition">
+            <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-sumaq-brown/60 text-xs"></i>
+          </div>
+
+          <!-- Shopping Cart Trigger Button -->
+          <button id="openCartBtn" class="relative bg-sumaq-brown hover:bg-sumaq-darkbrown text-white p-3 rounded-full transition-all duration-200 shadow-md hover:shadow-lg flex items-center justify-center">
+            <i class="fa-solid fa-bag-shopping text-base"></i>
+            <span id="cartCountBadge" class="absolute -top-1 -right-1 bg-sumaq-amber text-white font-bold text-[11px] w-5 h-5 rounded-full flex items-center justify-center border-2 border-white shadow">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-sumaq-sand/40 bg-sumaq-surface px-4 py-5 shadow-xl">
+      <div class="flex flex-col space-y-3 font-medium text-sm">
+        <div class="relative mb-2">
+          <input type="text" id="mobileSearchInput" placeholder="Buscar productos..." class="w-full bg-sumaq-light border border-sumaq-sand text-xs rounded-lg py-2.5 pl-9 pr-3">
+          <i class="fa-solid fa-magnifying-glass absolute left-3 top-3 text-sumaq-brown/60 text-xs"></i>
+        </div>
+        <a href="#catalogo" onclick="toggleMobileMenu()" class="py-2 border-b border-sumaq-sand/20 hover:text-sumaq-terracotta">Catálogo Completo</a>
+        <a href="#beneficios" onclick="toggleMobileMenu()" class="py-2 border-b border-sumaq-sand/20 hover:text-sumaq-terracotta">¿Por qué elegir SUMAQ?</a>
+        <a href="#contacto" onclick="toggleMobileMenu()" class="py-2 border-b border-sumaq-sand/20 hover:text-sumaq-terracotta">Contacto & Medios de Pago</a>
+        <a href="https://wa.me/51941485928?text=Hola%20Sumaq%20Store,%20quiero%20hacer%20un%20pedido" target="_blank" class="py-2 text-emerald-600 font-semibold flex items-center gap-2">
+          <i class="fa-brands fa-whatsapp text-lg"></i> Chatear por WhatsApp
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section class="relative overflow-hidden bg-gradient-to-b from-sumaq-light/80 via-sumaq-cream to-white py-12 md:py-20 border-b border-sumaq-sand/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 bg-sumaq-sand/50 text-sumaq-darkbrown px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase border border-sumaq-sand">
+            <span class="w-2 h-2 rounded-full bg-sumaq-amber animate-ping"></span>
+            Colección Exclusiva 2026
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-sumaq-espresso leading-tight">
+            Descubre el encanto de lo auténtico con <span class="text-sumaq-terracotta font-brand">SUMAQ</span>.
+          </h1>
+          <p class="text-base sm:text-lg text-sumaq-espresso/80 max-w-xl mx-auto lg:mx-0 font-normal">
+            Bolsos, carteras, accesorios finos y prendas exclusivas seleccionadas para realzar tu distinción diaria con la calidez y sofisticación que mereces.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-3">
+            <a href="#catalogo" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-sumaq-brown hover:bg-sumaq-darkbrown text-white font-semibold text-center transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group">
+              <span>Explorar Catálogo</span>
+              <i class="fa-solid fa-arrow-down transition-transform group-hover:translate-y-1"></i>
+            </a>
+            <a href="https://wa.me/51941485928?text=Hola%20Sumaq%20Store!%20Vengo%20de%20su%20p%C3%A1gina%20web%20y%20deseo%20hacer%20una%20consulta" target="_blank" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-center transition-all shadow-md flex items-center justify-center gap-2.5">
+              <i class="fa-brands fa-whatsapp text-xl"></i>
+              <span>Atención WhatsApp</span>
+            </a>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="pt-6 grid grid-cols-3 gap-4 border-t border-sumaq-sand/60 text-left">
+            <div>
+              <div class="text-xl sm:text-2xl font-bold text-sumaq-brown font-serif">100%</div>
+              <div class="text-xs text-sumaq-espresso/70">Garantía de Calidad</div>
+            </div>
+            <div>
+              <div class="text-xl sm:text-2xl font-bold text-sumaq-brown font-serif">Lima & Provincias</div>
+              <div class="text-xs text-sumaq-espresso/70">Envíos Rápidos</div>
+            </div>
+            <div>
+              <div class="text-xl sm:text-2xl font-bold text-sumaq-brown font-serif">Yape / Plin</div>
+              <div class="text-xs text-sumaq-espresso/70">Pagos Seguros</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual Showcase -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-sm sm:max-w-md">
+            <!-- Decorative backdrop rings -->
+            <div class="absolute -inset-4 bg-gradient-to-tr from-sumaq-sand to-sumaq-light rounded-3xl transform rotate-3 -z-10 shadow-lg"></div>
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/5] bg-sumaq-light">
+              <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=900&q=80" 
+                   alt="Sumaq Store Colección de Bolsos y Carteras" 
+                   class="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700">
+              
+              <!-- Floating Card -->
+              <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm p-4 rounded-xl shadow-lg border border-sumaq-sand flex items-center justify-between">
+                <div>
+                  <span class="text-[11px] font-semibold text-sumaq-terracotta uppercase">Favorito de la temporada</span>
+                  <h4 class="font-serif font-bold text-sm text-sumaq-espresso">Bolso Cuero Toffee Elegance</h4>
+                </div>
+                <div class="text-right">
+                  <div class="text-xs text-gray-500 line-through">S/ 189.00</div>
+                  <div class="text-base font-bold text-sumaq-brown font-mono">S/ 149.00</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="beneficios" class="py-12 bg-white border-y border-sumaq-sand/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 sm:gap-8">
+        
+        <div class="flex items-start gap-4 p-4 rounded-xl bg-sumaq-cream/60 border border-sumaq-sand/30">
+          <div class="w-12 h-12 rounded-lg bg-sumaq-sand/50 text-sumaq-brown flex items-center justify-center shrink-0 text-xl">
+            <i class="fa-solid fa-truck-fast"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-sm text-sumaq-espresso">Envíos a Todo el Perú</h4>
+            <p class="text-xs text-sumaq-espresso/70 mt-1">Llegamos a todas las provincias por Olva Courier y Shalom de confianza.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4 p-4 rounded-xl bg-sumaq-cream/60 border border-sumaq-sand/30">
+          <div class="w-12 h-12 rounded-lg bg-sumaq-sand/50 text-sumaq-brown flex items-center justify-center shrink-0 text-xl">
+            <i class="fa-solid fa-qrcode"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-sm text-sumaq-espresso">Yape & Plin Directo</h4>
+            <p class="text-xs text-sumaq-espresso/70 mt-1">Transfiere al instante de manera rápida, transparente y sin comisiones extras.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4 p-4 rounded-xl bg-sumaq-cream/60 border border-sumaq-sand/30">
+          <div class="w-12 h-12 rounded-lg bg-sumaq-sand/50 text-sumaq-brown flex items-center justify-center shrink-0 text-xl">
+            <i class="fa-solid fa-shield-heart"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-sm text-sumaq-espresso">Atención con Cariño</h4>
+            <p class="text-xs text-sumaq-espresso/70 mt-1">Asesoría directa y amena vía WhatsApp para resolver cualquier duda.</p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-4 p-4 rounded-xl bg-sumaq-cream/60 border border-sumaq-sand/30">
+          <div class="w-12 h-12 rounded-lg bg-sumaq-sand/50 text-sumaq-brown flex items-center justify-center shrink-0 text-xl">
+            <i class="fa-solid fa-gem"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-sm text-sumaq-espresso">Selección 'Sumaq'</h4>
+            <p class="text-xs text-sumaq-espresso/70 mt-1">Sumaq significa hermoso en Quechua: seleccionamos lo más fino para ti.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <main id="catalogo" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <span class="text-xs uppercase font-bold tracking-widest text-sumaq-terracotta">Nuestros Productos</span>
+      <h2 class="text-3xl sm:text-4xl font-serif font-bold text-sumaq-espresso mt-2">Catálogo Exclusivo</h2>
+      <p class="text-sm text-sumaq-espresso/70 mt-2">Explora los modelos disponibles en stock listos para despacho inmediato en Soles (S/.)</p>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10" id="filterContainer">
+      <button onclick="filterCategory('todos')" data-category="todos" class="category-btn active px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition bg-sumaq-brown text-white shadow-sm">
+        Todos
+      </button>
+      <button onclick="filterCategory('bolsos')" data-category="bolsos" class="category-btn px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition bg-white text-sumaq-espresso border border-sumaq-sand hover:bg-sumaq-sand/30">
+        Bolsos y Carteras
+      </button>
+      <button onclick="filterCategory('moda')" data-category="moda" class="category-btn px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition bg-white text-sumaq-espresso border border-sumaq-sand hover:bg-sumaq-sand/30">
+        Moda y Prendas
+      </button>
+      <button onclick="filterCategory('accesorios')" data-category="accesorios" class="category-btn px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition bg-white text-sumaq-espresso border border-sumaq-sand hover:bg-sumaq-sand/30">
+        Accesorios Finos
+      </button>
+      <button onclick="filterCategory('regalos')" data-category="regalos" class="category-btn px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition bg-white text-sumaq-espresso border border-sumaq-sand hover:bg-sumaq-sand/30">
+        Regalos Exclusivos
+      </button>
+    </div>
+
+    <!-- Dynamic Product Grid -->
+    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
+      <!-- Populated via JavaScript -->
+    </div>
+
+    <!-- Empty search feedback -->
+    <div id="noProductsFound" class="hidden text-center py-16">
+      <i class="fa-regular fa-face-frown text-4xl text-sumaq-brown/50 mb-3"></i>
+      <h3 class="font-serif text-lg font-bold text-sumaq-espresso">No encontramos productos con ese término</h3>
+      <p class="text-xs text-sumaq-espresso/70 mt-1">Prueba seleccionando otra categoría o limpiando la barra de búsqueda.</p>
+      <button onclick="resetFilters()" class="mt-4 px-5 py-2 bg-sumaq-brown text-white text-xs rounded-lg">Ver todos los productos</button>
+    </div>
+  </main>
+
+  <!-- Cart Drawer Overlay -->
+  <div id="cartOverlay" class="fixed inset-0 bg-black/50 z-50 opacity-0 pointer-events-none transition-opacity duration-300 backdrop-blur-xs"></div>
+
+  <!-- Cart Slide Drawer -->
+  <aside id="cartDrawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+    <!-- Header -->
+    <div class="p-5 border-b border-sumaq-sand/60 flex items-center justify-between bg-sumaq-cream">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-bag-shopping text-sumaq-brown"></i>
+        <h3 class="font-serif font-bold text-lg text-sumaq-espresso">Tu Carrito de Compras</h3>
+      </div>
+      <button id="closeCartBtn" class="text-gray-400 hover:text-sumaq-brown p-2 rounded-full hover:bg-white transition">
+        <i class="fa-solid fa-xmark text-xl"></i>
+      </button>
+    </div>
+
+    <!-- Cart items scrollable area -->
+    <div id="cartItemsList" class="flex-1 overflow-y-auto p-5 space-y-4">
+      <!-- Injected by JavaScript -->
+    </div>
+
+    <!-- Footer checkout actions -->
+    <div class="p-5 border-t border-sumaq-sand/60 bg-sumaq-cream/40 space-y-4">
+      <div class="flex justify-between items-center text-sm font-semibold text-sumaq-espresso">
+        <span>Subtotal</span>
+        <span id="cartSubtotal" class="font-mono text-base">S/ 0.00</span>
+      </div>
+      <div class="flex justify-between items-center text-xs text-emerald-700 bg-emerald-50 px-3 py-2 rounded-lg border border-emerald-200">
+        <span class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check"></i> Envío coordinado por WhatsApp</span>
+        <span class="font-bold uppercase text-[10px]">Por Calcular</span>
+      </div>
+
+      <!-- Total Price -->
+      <div class="flex justify-between items-center text-lg font-bold text-sumaq-brown border-t border-sumaq-sand/40 pt-3">
+        <span>Total a Pagar</span>
+        <span id="cartTotal" class="font-mono text-2xl font-black text-sumaq-terracotta">S/ 0.00</span>
+      </div>
+
+      <!-- WhatsApp Order CTA -->
+      <button id="checkoutWhatsAppBtn" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-4 rounded-xl flex items-center justify-center gap-3 transition-all shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed">
+        <i class="fa-brands fa-whatsapp text-2xl"></i>
+        <span>Enviar Pedido por WhatsApp</span>
+      </button>
+
+      <p class="text-[11px] text-center text-sumaq-espresso/60">
+        Se abrirá WhatsApp con el resumen de tu compra listo para confirmar stock con nuestro asesor.
+      </p>
+    </div>
+  </aside>
+
+  <div class="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-2 group">
+    <div class="hidden sm:block bg-white text-sumaq-espresso text-xs font-semibold py-1.5 px-3 rounded-full shadow-lg border border-sumaq-sand opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+      ¿Necesitas ayuda? Chatea con SUMAQ 👋
+    </div>
+    <a href="https://wa.me/51941485928?text=Hola%20Sumaq%20Store,%20quisiera%20consultar%20sobre%20un%20producto" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       class="bg-emerald-500 hover:bg-emerald-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl hover:scale-110 transition-transform duration-300 relative"
+       aria-label="Abrir WhatsApp oficial">
+       <i class="fa-brands fa-whatsapp text-3xl"></i>
+       <span class="absolute top-0 right-0 w-3.5 h-3.5 bg-red-500 border-2 border-white rounded-full"></span>
+    </a>
+  </div>
+
+  <!-- Notification Toast message -->
+  <div id="toastNotification" class="fixed bottom-6 left-6 z-50 transform -translate-y-4 opacity-0 pointer-events-none transition-all duration-300 bg-sumaq-darkbrown text-white text-xs sm:text-sm px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 border border-sumaq-sand/40">
+    <i class="fa-solid fa-circle-check text-emerald-400 text-base"></i>
+    <span id="toastMessage">Producto añadido al carrito</span>
+  </div>
+
+  <footer id="contacto" class="bg-sumaq-espresso text-sumaq-sand border-t-4 border-sumaq-amber pt-16 pb-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+        
+        <!-- Col 1: Identity -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-sumaq-cream rounded-lg p-1 flex items-center justify-center">
+              <svg viewBox="0 0 100 100" class="w-full h-full" fill="none">
+                <path d="M35 34 C35 18, 65 18, 65 34" stroke="#6B3A21" stroke-width="7"/>
+                <path d="M22 34 L78 34 L88 90 L12 90 Z" fill="#FBF7F0" stroke="#6B3A21" stroke-width="4"/>
+                <path d="M57 46 C50 43, 38 48, 42 60 C44 67, 58 64, 57 74 C56 81, 44 83, 38 78" stroke="#6B3A21" stroke-width="6.5"/>
+              </svg>
+            </div>
+            <div>
+              <span class="font-brand font-bold text-xl tracking-wider text-white">SUMAQ</span>
+              <span class="text-[9px] tracking-widest text-sumaq-amber block -mt-1 font-semibold">STORE</span>
+            </div>
+          </div>
+          <p class="text-xs text-white/70 leading-relaxed">
+            Tu tienda en línea de confianza en Perú. Calidad, finura y atención cercana para destacar tu estilo propio.
+          </p>
+          <div class="flex items-center gap-3 pt-1">
+            <a href="https://wa.me/51941485928" target="_blank" class="w-9 h-9 rounded-full bg-white/10 hover:bg-emerald-600 text-white flex items-center justify-center transition">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-sumaq-amber text-white flex items-center justify-center transition">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-sumaq-amber text-white flex items-center justify-center transition">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-sumaq-amber text-white flex items-center justify-center transition">
+              <i class="fa-brands fa-tiktok"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div class="space-y-3">
+          <h4 class="font-serif font-bold text-white text-base">Categorías</h4>
+          <ul class="text-xs space-y-2.5 text-white/75">
+            <li><button onclick="filterCategory('bolsos')" class="hover:text-sumaq-sand transition">Bolsos y Carteras</button></li>
+            <li><button onclick="filterCategory('moda')" class="hover:text-sumaq-sand transition">Moda y Prendas</button></li>
+            <li><button onclick="filterCategory('accesorios')" class="hover:text-sumaq-sand transition">Accesorios Finos</button></li>
+            <li><button onclick="filterCategory('regalos')" class="hover:text-sumaq-sand transition">Regalos Especiales</button></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Contact Details -->
+        <div class="space-y-3">
+          <h4 class="font-serif font-bold text-white text-base">Contacto & Ventas</h4>
+          <ul class="text-xs space-y-3 text-white/75">
+            <li class="flex items-center gap-2.5">
+              <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
+              <a href="https://wa.me/51941485928" target="_blank" class="hover:underline">+51 941 485 928</a>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <i class="fa-solid fa-location-dot text-sumaq-amber text-sm"></i>
+              <span>Lima, Perú (Envíos a Nivel Nacional)</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <i class="fa-solid fa-clock text-sumaq-amber text-sm"></i>
+              <span>Lunes a Sábado: 8:30 AM - 9:00 PM</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Payment Methods -->
+        <div class="space-y-3">
+          <h4 class="font-serif font-bold text-white text-base">Medios de Pago</h4>
+          <p class="text-xs text-white/70">Aceptamos transferencias y pagos móviles seguros en Soles:</p>
+          <div class="grid grid-cols-2 gap-2 pt-1">
+            <div class="bg-white/10 rounded-lg p-2.5 text-center text-xs font-bold text-white border border-white/10 flex items-center justify-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-purple-400"></span> YAPE
+            </div>
+            <div class="bg-white/10 rounded-lg p-2.5 text-center text-xs font-bold text-white border border-white/10 flex items-center justify-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span> PLIN
+            </div>
+            <div class="bg-white/10 rounded-lg p-2.5 text-center text-xs font-bold text-white border border-white/10 flex items-center justify-center gap-1.5">
+              <i class="fa-solid fa-building-columns text-[10px]"></i> BCP / BBVA
+            </div>
+            <div class="bg-white/10 rounded-lg p-2.5 text-center text-xs font-bold text-white border border-white/10 flex items-center justify-center gap-1.5">
+              <i class="fa-solid fa-money-bill-wave text-[10px]"></i> Contraentrega*
+            </div>
+          </div>
+          <span class="text-[10px] text-white/50 block">*Contraentrega sujeta a cobertura previa coordinación.</span>
+        </div>
+
+      </div>
+
+      <!-- Copyright Note -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-white/50 gap-4">
+        <div>
+          © <span id="currentYear"></span> SUMAQ STORE. Todos los derechos reservados.
+        </div>
+        <div class="flex gap-4">
+          <span class="hover:text-white transition cursor-pointer">Términos & Condiciones</span>
+          <span>•</span>
+          <span class="hover:text-white transition cursor-pointer">Política de Privacidad</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Official WhatsApp Phone Number
+    const WA_NUMBER = "51941485928";
+
+    // Dynamic Product Catalog Data tailored to SUMAQ Store aesthetic
+    const products = [
+      {
+        id: 1,
+        name: "Bolso Tote Cuero Toffee Caramel",
+        category: "bolsos",
+        price: 139.00,
+        originalPrice: 179.00,
+        image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=800&q=80",
+        badge: "Más Vendido",
+        description: "Espacioso, elegante con finos acabados en costura reforzada."
+      },
+      {
+        id: 2,
+        name: "Cartera Crossbody Elegance Brown",
+        category: "bolsos",
+        price: 99.00,
+        originalPrice: 129.00,
+        image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=80",
+        badge: "Oferta",
+        description: "Ideal para salidas casuales y eventos especiales. Correa graduable."
+      },
+      {
+        id: 3,
+        name: "Mochila Urbana de Cuero Terracota",
+        category: "bolsos",
+        price: 159.00,
+        originalPrice: 199.00,
+        image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80",
+        badge: "Nuevo",
+        description: "Comodidad suprema con compartimento acolchado para tablet y documentos."
+      },
+      {
+        id: 4,
+        name: "Blazer Casual Otoño Tono Caramelo",
+        category: "moda",
+        price: 145.00,
+        originalPrice: 180.00,
+        image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=800&q=80",
+        badge: "Tendencia",
+        description: "Corte estructurado y textil de alta resistencia que abriga con sofisticación."
+      },
+      {
+        id: 5,
+        name: "Suéter Tejido Warm Sand Soft",
+        category: "moda",
+        price: 89.00,
+        originalPrice: 110.00,
+        image: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=800&q=80",
+        badge: null,
+        description: "Tejido suave al tacto con tonalidades tierra que combinan con todo."
+      },
+      {
+        id: 6,
+        name: "Billetera Cuero Café Multi-Tarjetero",
+        category: "accesorios",
+        price: 55.00,
+        originalPrice: 75.00,
+        image: "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=800&q=80",
+        badge: "Favorito",
+        description: "Diseño compacto con bloqueo RFID y costura artesanal de alta duración."
+      },
+      {
+        id: 7,
+        name: "Cinturón de Cuero Clásico con Hebilla Dorada",
+        category: "accesorios",
+        price: 49.00,
+        originalPrice: 65.00,
+        image: "https://images.unsplash.com/photo-1624222247344-550fb60583dc?auto=format&fit=crop&w=800&q=80",
+        badge: null,
+        description: "El toque definitivo de elegancia para pantalones y vestidos."
+      },
+      {
+        id: 8,
+        name: "Pack Regalo Sumaq Exclusive Box",
+        category: "regalos",
+        price: 185.00,
+        originalPrice: 230.00,
+        image: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=800&q=80",
+        badge: "Ideal Regalo",
+        description: "Caja de lujo con pañuelo de seda, tarjetero y fragancia de aromaterapia."
+      }
+    ];
+
+    // Shopping Cart State
+    let cart = [];
+    let currentFilter = 'todos';
+    let searchQuery = '';
+
+    // DOM Elements
+    const productGrid = document.getElementById('productGrid');
+    const noProductsFound = document.getElementById('noProductsFound');
+    const cartDrawer = document.getElementById('cartDrawer');
+    const cartOverlay = document.getElementById('cartOverlay');
+    const openCartBtn = document.getElementById('openCartBtn');
+    const closeCartBtn = document.getElementById('closeCartBtn');
+    const cartItemsList = document.getElementById('cartItemsList');
+    const cartCountBadge = document.getElementById('cartCountBadge');
+    const cartSubtotal = document.getElementById('cartSubtotal');
+    const cartTotal = document.getElementById('cartTotal');
+    const checkoutWhatsAppBtn = document.getElementById('checkoutWhatsAppBtn');
+    const searchInput = document.getElementById('searchInput');
+    const mobileSearchInput = document.getElementById('mobileSearchInput');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const toastNotification = document.getElementById('toastNotification');
+    const toastMessage = document.getElementById('toastMessage');
+
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Toggle Mobile Navigation
+    function toggleMobileMenu() {
+      mobileMenu.classList.toggle('hidden');
+    }
+    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+    // Format currency to Peruvian Soles (S/.)
+    function formatMoney(amount) {
+      return `S/ ${amount.toFixed(2)}`;
+    }
+
+    // Render Product Cards
+    function renderProducts() {
+      const filtered = products.filter(p => {
+        const matchesCategory = (currentFilter === 'todos') || (p.category === currentFilter);
+        const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                              p.description.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchesCategory && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        productGrid.innerHTML = '';
+        noProductsFound.classList.remove('hidden');
+        return;
+      }
+
+      noProductsFound.classList.add('hidden');
+      productGrid.innerHTML = filtered.map(product => {
+        const waProductUrl = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(`¡Hola Sumaq Store! Me interesa comprar el producto: *${product.name}* (Precio: ${formatMoney(product.price)}). ¿Tienen stock disponible?`)}`;
+
+        return `
+          <div class="group bg-white rounded-2xl overflow-hidden border border-sumaq-sand/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+            <div class="relative overflow-hidden aspect-[4/4] bg-sumaq-light">
+              <img src="${product.image}" 
+                   alt="${product.name}" 
+                   onerror="this.src='https://placehold.co/600x600/FAF7F2/6B3A21?text=Sumaq+Store'"
+                   class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+              
+              ${product.badge ? `
+                <span class="absolute top-3 left-3 bg-sumaq-amber text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md shadow">
+                  ${product.badge}
+                </span>
+              ` : ''}
+
+              <!-- Direct WhatsApp quick button overlay -->
+              <a href="${waProductUrl}" target="_blank" 
+                 class="absolute top-3 right-3 w-9 h-9 rounded-full bg-emerald-600/90 text-white flex items-center justify-center opacity-90 hover:opacity-100 hover:scale-110 transition shadow" 
+                 title="Consultar por WhatsApp">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+              </a>
+            </div>
+
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="text-[11px] font-semibold text-sumaq-amber uppercase tracking-wider">${getCategoryLabel(product.category)}</span>
+                <h3 class="font-serif font-bold text-base text-sumaq-espresso mt-1 leading-snug group-hover:text-sumaq-brown transition">
+                  ${product.name}
+                </h3>
+                <p class="text-xs text-sumaq-espresso/70 mt-2 line-clamp-2">
+                  ${product.description}
+                </p>
+              </div>
+
+              <div class="mt-4 pt-4 border-t border-sumaq-sand/40">
+                <div class="flex items-baseline justify-between mb-3">
+                  <div>
+                    <span class="text-lg font-bold font-mono text-sumaq-brown">${formatMoney(product.price)}</span>
+                    ${product.originalPrice ? `<span class="text-xs text-gray-400 line-through ml-1.5">${formatMoney(product.originalPrice)}</span>` : ''}
+                  </div>
+                  <span class="text-[11px] text-emerald-600 font-semibold bg-emerald-50 px-2 py-0.5 rounded">En Stock</span>
+                </div>
+
+                <div class="grid grid-cols-2 gap-2">
+                  <button onclick="addToCart(${product.id})" class="w-full bg-sumaq-brown hover:bg-sumaq-darkbrown text-white text-xs font-semibold py-2.5 px-3 rounded-xl transition flex items-center justify-center gap-1.5 shadow-sm">
+                    <i class="fa-solid fa-cart-plus"></i>
+                    <span>Agregar</span>
+                  </button>
+                  <a href="${waProductUrl}" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold py-2.5 px-2 rounded-xl transition flex items-center justify-center gap-1.5 shadow-sm text-center">
+                    <i class="fa-brands fa-whatsapp text-sm"></i>
+                    <span>Pedir</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Helper for category label translations
+    function getCategoryLabel(cat) {
+      const map = {
+        'bolsos': 'Bolsos & Carteras',
+        'moda': 'Moda & Estilo',
+        'accesorios': 'Accesorios',
+        'regalos': 'Regalos Especiales'
+      };
+      return map[cat] || 'SUMAQ';
+    }
+
+    function filterCategory(category) {
+      currentFilter = category;
+      document.querySelectorAll('.category-btn').forEach(btn => {
+        if (btn.dataset.category === category) {
+          btn.className = "category-btn active px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition bg-sumaq-brown text-white shadow-sm";
+        } else {
+          btn.className = "category-btn px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition bg-white text-sumaq-espresso border border-sumaq-sand hover:bg-sumaq-sand/30";
+        }
+      });
+      renderProducts();
+    }
+
+    function resetFilters() {
+      currentFilter = 'todos';
+      searchQuery = '';
+      if (searchInput) searchInput.value = '';
+      if (mobileSearchInput) mobileSearchInput.value = '';
+      filterCategory('todos');
+    }
+
+    // Search events
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      renderProducts();
+    });
+
+    mobileSearchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      renderProducts();
+    });
+
+    // Cart Management
+    function addToCart(productId) {
+      const product = products.find(p => p.id === productId);
+      if (!product) return;
+
+      const existing = cart.find(item => item.id === productId);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          image: product.image,
+          quantity: 1
+        });
+      }
+
+      updateCartUI();
+      showToast(`¡"${product.name}" añadido al carrito!`);
+    }
+
+    function updateQuantity(productId, delta) {
+      const item = cart.find(i => i.id === productId);
+      if (!item) return;
+
+      item.quantity += delta;
+      if (item.quantity <= 0) {
+        cart = cart.filter(i => i.id !== productId);
+      }
+      updateCartUI();
+    }
+
+    function removeFromCart(productId) {
+      cart = cart.filter(i => i.id !== productId);
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      // Total count
+      const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+      cartCountBadge.textContent = totalCount;
+
+      // Calculate total money
+      const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      cartSubtotal.textContent = formatMoney(subtotal);
+      cartTotal.textContent = formatMoney(subtotal);
+
+      if (cart.length === 0) {
+        cartItemsList.innerHTML = `
+          <div class="h-64 flex flex-col items-center justify-center text-center text-gray-400">
+            <i class="fa-solid fa-basket-shopping text-4xl mb-3 text-sumaq-sand"></i>
+            <p class="font-medium text-sumaq-espresso">Tu carrito está vacío</p>
+            <p class="text-xs text-sumaq-espresso/60 mt-1">Explora nuestro catálogo y añade tus favoritos.</p>
+            <button onclick="toggleCart(false)" class="mt-4 px-4 py-2 bg-sumaq-brown text-white text-xs font-semibold rounded-lg">Ir de compras</button>
+          </div>
+        `;
+        checkoutWhatsAppBtn.disabled = true;
+      } else {
+        checkoutWhatsAppBtn.disabled = false;
+        cartItemsList.innerHTML = cart.map(item => `
+          <div class="flex items-center gap-3 bg-white p-3 rounded-xl border border-sumaq-sand/40 shadow-xs">
+            <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-lg bg-sumaq-light shrink-0">
+            <div class="flex-1 min-w-0">
+              <h4 class="font-bold text-xs text-sumaq-espresso truncate">${item.name}</h4>
+              <div class="text-xs font-mono font-bold text-sumaq-brown mt-0.5">${formatMoney(item.price)}</div>
+              
+              <div class="flex items-center gap-2 mt-2">
+                <button onclick="updateQuantity(${item.id}, -1)" class="w-6 h-6 rounded-md bg-sumaq-light hover:bg-sumaq-sand text-sumaq-brown flex items-center justify-center text-xs font-bold transition">
+                  <i class="fa-solid fa-minus text-[10px]"></i>
+                </button>
+                <span class="text-xs font-semibold font-mono w-5 text-center">${item.quantity}</span>
+                <button onclick="updateQuantity(${item.id}, 1)" class="w-6 h-6 rounded-md bg-sumaq-light hover:bg-sumaq-sand text-sumaq-brown flex items-center justify-center text-xs font-bold transition">
+                  <i class="fa-solid fa-plus text-[10px]"></i>
+                </button>
+              </div>
+            </div>
+            <div class="flex flex-col items-end justify-between h-16">
+              <button onclick="removeFromCart(${item.id})" class="text-gray-400 hover:text-red-500 transition text-xs">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+              <div class="text-xs font-bold font-mono text-sumaq-terracotta">
+                ${formatMoney(item.price * item.quantity)}
+              </div>
+            </div>
+          </div>
+        `).join('');
+      }
+    }
+
+    // Toggle Drawer
+    function toggleCart(open = true) {
+      if (open) {
+        cartDrawer.classList.remove('translate-x-full');
+        cartOverlay.classList.remove('opacity-0', 'pointer-events-none');
+        document.body.style.overflow = 'hidden';
+      } else {
+        cartDrawer.classList.add('translate-x-full');
+        cartOverlay.classList.add('opacity-0', 'pointer-events-none');
+        document.body.style.overflow = '';
+      }
+    }
+
+    openCartBtn.addEventListener('click', () => toggleCart(true));
+    closeCartBtn.addEventListener('click', () => toggleCart(false));
+    cartOverlay.addEventListener('click', () => toggleCart(false));
+
+    // Toast message dispatcher
+    function showToast(text) {
+      toastMessage.textContent = text;
+      toastNotification.classList.remove('opacity-0', '-translate-y-4', 'pointer-events-none');
+      setTimeout(() => {
+        toastNotification.classList.add('opacity-0', '-translate-y-4', 'pointer-events-none');
+      }, 2600);
+    }
+
+    // Checkout via WhatsApp compiler
+    checkoutWhatsAppBtn.addEventListener('click', () => {
+      if (cart.length === 0) return;
+
+      const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      let orderLines = cart.map((item, index) => 
+        `▫️ *${item.quantity}x* ${item.name} -> ${formatMoney(item.price * item.quantity)}`
+      ).join('\n');
+
+      const message = 
+`🛍️ *NUEVO PEDIDO - SUMAQ STORE*
+---------------------------------------
+¡Hola! Deseo realizar el siguiente pedido a través de su tienda web:
+
+${orderLines}
+
+---------------------------------------
+💰 *TOTAL:* *${formatMoney(subtotal)}*
+📦 *Destino de envío:* (Por favor indicar Lima o Provincia)
+💳 *Medio de pago preferido:* (Yape / Plin / Transferencia BCP/BBVA)
+
+Por favor, confirmar disponibilidad y datos de cuenta para realizar el abono. ¡Muchas gracias!`;
+
+      const waCheckoutUrl = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
+      window.open(waCheckoutUrl, '_blank');
+    });
+
+    // Initial render
+    renderProducts();
+    updateCartUI();
+  </script>
+</body>
+</html>
